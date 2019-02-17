@@ -1,30 +1,11 @@
 function frequencyCounter(arr1, arr2) {
     if(arr1.length !== arr2.length) return false;
-    const obj = {};
-    arr1.forEach((ele, index) => {
-        if(arr2.includes(ele**2)) {
-            if (!obj[ele ** 2]) {
-                obj[ele ** 2] = {
-                    count: 1,
-                    element: ele ** 2
-                };
-            } else {
-                obj[ele**2].count += 1
-            }
-        }
-
-    });
-    console.log(obj);
-    for(let i in obj) {
-        if(Object.getOwnPropertyNames(obj).length == arr1.length) {
-            if(obj[i].count > 1) {
-                return false;
-            }
-        } else {
-            return false;
-        }
+    for(let i = 0; i < arr1.length; i++) {
+        let correctIndex = arr2.indexOf(arr1[i] ** 2);
+        if(correctIndex === - 1) return false;
+        arr2.splice(correctIndex, 1);
     }
     return true;
 }
 
-console.log(frequencyCounter([1, 1, 3], [1, 1, 1]));
+console.log(frequencyCounter([1, 2, 3, 2], [9, 1, 4, 4]));
