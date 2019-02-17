@@ -1,4 +1,5 @@
 function frequencyCounter(arr1, arr2) {
+    if(arr1.length !== arr2.length) return false;
     const obj = {};
     arr1.forEach((ele, index) => {
         if(arr2.includes(ele**2)) {
